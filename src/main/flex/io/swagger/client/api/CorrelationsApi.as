@@ -26,11 +26,11 @@ public class CorrelationsApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_correlations_get: String = "correlations_get";
-        public static const event_public_correlations_search_search_get: String = "public_correlations_search_search_get";
+        public static const event_v1_correlations_get: String = "v1_correlations_get";
         public static const event_v1_correlations_post: String = "v1_correlations_post";
         public static const event_v1_organizations_organization_id_users_user_id_variables_variable_name_causes_get: String = "v1_organizations_organization_id_users_user_id_variables_variable_name_causes_get";
         public static const event_v1_organizations_organization_id_users_user_id_variables_variable_name_effects_get: String = "v1_organizations_organization_id_users_user_id_variables_variable_name_effects_get";
+        public static const event_v1_public_correlations_search_search_get: String = "v1_public_correlations_search_search_get";
         public static const event_v1_variables_variable_name_causes_get: String = "v1_variables_variable_name_causes_get";
         public static const event_v1_variables_variable_name_effects_get: String = "v1_variables_variable_name_effects_get";
         public static const event_v1_variables_variable_name_public_causes_get: String = "v1_variables_variable_name_public_causes_get";
@@ -42,9 +42,9 @@ public class CorrelationsApi extends SwaggerApi {
     /*
      * Returns Array 
      */
-    public function correlations_get (effect: String, cause: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_correlations_get (effect: String, cause: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
-        var path: String = "/correlations".replace(/{format}/g,"xml");
+        var path: String = "/v1/correlations".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -71,38 +71,7 @@ public class CorrelationsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "correlations_get";
-
-        token.returnType = Array;
-        return requestId;
-
-    }
-    
-    /*
-     * Returns Array 
-     */
-    public function public_correlations_search_search_get (search: String, effectOrCause: String): String {
-        // create path and map variables
-        var path: String = "/public/correlations/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
-
-        // query params
-        var queryParams: Dictionary = new Dictionary();
-        var headerParams: Dictionary = new Dictionary();
-
-        
-
-        if("null" != String(effectOrCause))
-            queryParams["effectOrCause"] = toPathValue(effectOrCause);
-        
-
-        
-
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
-
-        var requestId: String = getUniqueId();
-
-        token.requestId = requestId;
-        token.completionEventType = "public_correlations_search_search_get";
+        token.completionEventType = "v1_correlations_get";
 
         token.returnType = Array;
         return requestId;
@@ -198,6 +167,37 @@ public class CorrelationsApi extends SwaggerApi {
 
         token.requestId = requestId;
         token.completionEventType = "v1_organizations_organization_id_users_user_id_variables_variable_name_effects_get";
+
+        token.returnType = Array;
+        return requestId;
+
+    }
+    
+    /*
+     * Returns Array 
+     */
+    public function v1_public_correlations_search_search_get (search: String, effectOrCause: String): String {
+        // create path and map variables
+        var path: String = "/v1/public/correlations/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
+
+        // query params
+        var queryParams: Dictionary = new Dictionary();
+        var headerParams: Dictionary = new Dictionary();
+
+        
+
+        if("null" != String(effectOrCause))
+            queryParams["effectOrCause"] = toPathValue(effectOrCause);
+        
+
+        
+
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
+
+        var requestId: String = getUniqueId();
+
+        token.requestId = requestId;
+        token.completionEventType = "v1_public_correlations_search_search_get";
 
         token.returnType = Array;
         return requestId;
@@ -323,7 +323,7 @@ public class CorrelationsApi extends SwaggerApi {
     /*
      * Returns CommonResponse 
      */
-    public function v1_votes_post (cause: String, effect: String, vote: Boolean): String {
+    public function v1_votes_post (cause: String, effect: String, correlation: Number, vote: Boolean): String {
         // create path and map variables
         var path: String = "/v1/votes".replace(/{format}/g,"xml");
 
@@ -337,6 +337,8 @@ public class CorrelationsApi extends SwaggerApi {
             queryParams["cause"] = toPathValue(cause);
         if("null" != String(effect))
             queryParams["effect"] = toPathValue(effect);
+        if("null" != String(correlation))
+            queryParams["correlation"] = toPathValue(correlation);
         if("null" != String(vote))
             queryParams["vote"] = toPathValue(vote);
         

@@ -1,5 +1,6 @@
 package io.swagger.client.model {
 
+import io.swagger.client.model.HumanTime;
 
     [XmlRootNode(name="Measurement")]
     public class Measurement {
@@ -25,6 +26,20 @@ package io.swagger.client.model {
         
         public var timestamp: Number = 0;
     
+        /* Start Time for the measurement event in ISO 8601 */
+        
+        
+        [XmlElement(name="startTime")]
+        
+        public var startTime: String = null;
+    
+        /* Start Time for the measurement event in ISO 8601 */
+        
+        
+        [XmlElement(name="humanTime")]
+        
+        public var humanTime: HumanTime = null;
+    
         /* Converted measurement value in requested unit */
         
         
@@ -38,6 +53,13 @@ package io.swagger.client.model {
         [XmlElement(name="unit")]
         
         public var unit: String = null;
+    
+        /* Original value */
+        
+        
+        [XmlElement(name="originalValue")]
+        
+        public var originalValue: Number = null;
     
         /* Measurement value in the unit as orignally submitted */
         
@@ -53,6 +75,27 @@ package io.swagger.client.model {
         
         public var storedAbbreviatedUnitName: String = null;
     
+        /* Original Unit of measurement as originally submitted */
+        
+        
+        [XmlElement(name="originalAbbreviatedUnitName")]
+        
+        public var originalAbbreviatedUnitName: String = null;
+    
+        /* Unit of measurement as originally submitted */
+        
+        
+        [XmlElement(name="abbreviatedUnitName")]
+        
+        public var abbreviatedUnitName: String = null;
+    
+        /* Note of measurement */
+        
+        
+        [XmlElement(name="note")]
+        
+        public var note: String = null;
+    
 
     public function toString(): String {
         var str: String = "Measurement: ";
@@ -63,13 +106,25 @@ package io.swagger.client.model {
         
         str += " (timestamp: " + timestamp + ")";
         
+        str += " (startTime: " + startTime + ")";
+        
+        str += " (humanTime: " + humanTime + ")";
+        
         str += " (value: " + value + ")";
         
         str += " (unit: " + unit + ")";
         
+        str += " (originalValue: " + originalValue + ")";
+        
         str += " (storedValue: " + storedValue + ")";
         
         str += " (storedAbbreviatedUnitName: " + storedAbbreviatedUnitName + ")";
+        
+        str += " (originalAbbreviatedUnitName: " + originalAbbreviatedUnitName + ")";
+        
+        str += " (abbreviatedUnitName: " + abbreviatedUnitName + ")";
+        
+        str += " (note: " + note + ")";
         
         return str;
     }

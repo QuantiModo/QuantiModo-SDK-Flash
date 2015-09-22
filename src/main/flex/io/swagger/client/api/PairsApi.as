@@ -23,15 +23,15 @@ public class PairsApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_pairs_get: String = "pairs_get";
+        public static const event_v1_pairs_get: String = "v1_pairs_get";
 
 
     /*
      * Returns Array 
      */
-    public function pairs_get (cause: String, effect: String, causeSource: String, causeUnit: String, delay: String, duration: String, effectSource: String, effectUnit: String, endTime: String, startTime: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_pairs_get (cause: String, effect: String, causeSource: String, causeUnit: String, delay: String, duration: String, effectSource: String, effectUnit: String, endTime: String, startTime: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
-        var path: String = "/pairs".replace(/{format}/g,"xml");
+        var path: String = "/v1/pairs".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -74,7 +74,7 @@ public class PairsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "pairs_get";
+        token.completionEventType = "v1_pairs_get";
 
         token.returnType = Array;
         return requestId;

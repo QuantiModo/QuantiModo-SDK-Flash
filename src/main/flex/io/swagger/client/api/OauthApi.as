@@ -22,16 +22,57 @@ public class OauthApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_oauth2_accesstoken_get: String = "oauth2_accesstoken_get";
-        public static const event_oauth2_authorize_get: String = "oauth2_authorize_get";
+        public static const event_v1_oauth2_authorize_get: String = "v1_oauth2_authorize_get";
+        public static const event_v1_oauth2_token_get: String = "v1_oauth2_token_get";
 
 
     /*
      * Returns void 
      */
-    public function oauth2_accesstoken_get (clientId: String, clientSecret: String, grantType: String, responseType: String, scope: String, redirectUri: String, state: String, realm: String): String {
+    public function v1_oauth2_authorize_get (clientId: String, clientSecret: String, responseType: String, scope: String, redirectUri: String, state: String): String {
         // create path and map variables
-        var path: String = "/oauth2/accesstoken".replace(/{format}/g,"xml");
+        var path: String = "/v1/oauth2/authorize".replace(/{format}/g,"xml");
+
+        // query params
+        var queryParams: Dictionary = new Dictionary();
+        var headerParams: Dictionary = new Dictionary();
+
+        
+
+        if("null" != String(clientId))
+            queryParams["clientId"] = toPathValue(clientId);
+        if("null" != String(clientSecret))
+            queryParams["clientSecret"] = toPathValue(clientSecret);
+        if("null" != String(responseType))
+            queryParams["responseType"] = toPathValue(responseType);
+        if("null" != String(scope))
+            queryParams["scope"] = toPathValue(scope);
+        if("null" != String(redirectUri))
+            queryParams["redirectUri"] = toPathValue(redirectUri);
+        if("null" != String(state))
+            queryParams["state"] = toPathValue(state);
+        
+
+        
+
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
+
+        var requestId: String = getUniqueId();
+
+        token.requestId = requestId;
+        token.completionEventType = "v1_oauth2_authorize_get";
+
+        token.returnType = null ;
+        return requestId;
+
+    }
+    
+    /*
+     * Returns void 
+     */
+    public function v1_oauth2_token_get (clientId: String, clientSecret: String, grantType: String, responseType: String, scope: String, redirectUri: String, state: String): String {
+        // create path and map variables
+        var path: String = "/v1/oauth2/token".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -53,8 +94,6 @@ public class OauthApi extends SwaggerApi {
             queryParams["redirectUri"] = toPathValue(redirectUri);
         if("null" != String(state))
             queryParams["state"] = toPathValue(state);
-        if("null" != String(realm))
-            queryParams["realm"] = toPathValue(realm);
         
 
         
@@ -64,50 +103,7 @@ public class OauthApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "oauth2_accesstoken_get";
-
-        token.returnType = null ;
-        return requestId;
-
-    }
-    
-    /*
-     * Returns void 
-     */
-    public function oauth2_authorize_get (clientId: String, clientSecret: String, responseType: String, scope: String, redirectUri: String, state: String, realm: String): String {
-        // create path and map variables
-        var path: String = "/oauth2/authorize".replace(/{format}/g,"xml");
-
-        // query params
-        var queryParams: Dictionary = new Dictionary();
-        var headerParams: Dictionary = new Dictionary();
-
-        
-
-        if("null" != String(clientId))
-            queryParams["clientId"] = toPathValue(clientId);
-        if("null" != String(clientSecret))
-            queryParams["clientSecret"] = toPathValue(clientSecret);
-        if("null" != String(responseType))
-            queryParams["responseType"] = toPathValue(responseType);
-        if("null" != String(scope))
-            queryParams["scope"] = toPathValue(scope);
-        if("null" != String(redirectUri))
-            queryParams["redirectUri"] = toPathValue(redirectUri);
-        if("null" != String(state))
-            queryParams["state"] = toPathValue(state);
-        if("null" != String(realm))
-            queryParams["realm"] = toPathValue(realm);
-        
-
-        
-
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
-
-        var requestId: String = getUniqueId();
-
-        token.requestId = requestId;
-        token.completionEventType = "oauth2_authorize_get";
+        token.completionEventType = "v1_oauth2_token_get";
 
         token.returnType = null ;
         return requestId;

@@ -39,19 +39,19 @@ package io.swagger.client.model {
         
         public var joinWith: String = null;
     
-        /* maximumValue */
+        /* maximumAllowedValue */
         
         
-        [XmlElement(name="maximumValue")]
+        [XmlElement(name="maximumAllowedValue")]
         
-        public var maximumValue: Number = 0.0;
+        public var maximumAllowedValue: Number = 0.0;
     
-        /* minimumValue */
+        /* minimumAllowedValue */
         
         
-        [XmlElement(name="minimumValue")]
+        [XmlElement(name="minimumAllowedValue")]
         
-        public var minimumValue: Number = 0.0;
+        public var minimumAllowedValue: Number = 0.0;
     
         /* name */
         
@@ -88,9 +88,9 @@ package io.swagger.client.model {
         
         str += " (joinWith: " + joinWith + ")";
         
-        str += " (maximumValue: " + maximumValue + ")";
+        str += " (maximumAllowedValue: " + maximumAllowedValue + ")";
         
-        str += " (minimumValue: " + minimumValue + ")";
+        str += " (minimumAllowedValue: " + minimumAllowedValue + ")";
         
         str += " (name: " + name + ")";
         

@@ -26,19 +26,20 @@ public class MeasurementsApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_measurement_sources_get: String = "measurement_sources_get";
-        public static const event_measurement_sources_post: String = "measurement_sources_post";
-        public static const event_measurements_get: String = "measurements_get";
-        public static const event_measurements_v2_post: String = "measurements_v2_post";
-        public static const event_measurements_range_get: String = "measurements_range_get";
+        public static const event_v1_measurement_sources_get: String = "v1_measurement_sources_get";
+        public static const event_v1_measurement_sources_post: String = "v1_measurement_sources_post";
+        public static const event_v1_measurements_get: String = "v1_measurements_get";
+        public static const event_v1_measurements_post: String = "v1_measurements_post";
+        public static const event_v1_measurements_daily_get: String = "v1_measurements_daily_get";
+        public static const event_v1_measurements_range_get: String = "v1_measurements_range_get";
 
 
     /*
      * Returns MeasurementSource 
      */
-    public function measurement_sources_get (): String {
+    public function v1_measurement_sources_get (): String {
         // create path and map variables
-        var path: String = "/measurementSources".replace(/{format}/g,"xml");
+        var path: String = "/v1/measurementSources".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -55,7 +56,7 @@ public class MeasurementsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "measurement_sources_get";
+        token.completionEventType = "v1_measurement_sources_get";
 
         token.returnType = MeasurementSource;
         return requestId;
@@ -65,9 +66,9 @@ public class MeasurementsApi extends SwaggerApi {
     /*
      * Returns void 
      */
-    public function measurement_sources_post (name: MeasurementSource): String {
+    public function v1_measurement_sources_post (name: MeasurementSource): String {
         // create path and map variables
-        var path: String = "/measurementSources".replace(/{format}/g,"xml");
+        var path: String = "/v1/measurementSources".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -84,7 +85,7 @@ public class MeasurementsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "measurement_sources_post";
+        token.completionEventType = "v1_measurement_sources_post";
 
         token.returnType = null ;
         return requestId;
@@ -94,9 +95,9 @@ public class MeasurementsApi extends SwaggerApi {
     /*
      * Returns Measurement 
      */
-    public function measurements_get (variableName: String, unit: String, startTime: String, endTime: String, groupingWidth: Number, groupingTimezone: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_measurements_get (variableName: String, unit: String, startTime: String, endTime: String, groupingWidth: Number, groupingTimezone: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
-        var path: String = "/measurements".replace(/{format}/g,"xml");
+        var path: String = "/v1/measurements".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -131,7 +132,7 @@ public class MeasurementsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "measurements_get";
+        token.completionEventType = "v1_measurements_get";
 
         token.returnType = Measurement;
         return requestId;
@@ -141,9 +142,9 @@ public class MeasurementsApi extends SwaggerApi {
     /*
      * Returns void 
      */
-    public function measurements_v2_post (measurements: MeasurementSet): String {
+    public function v1_measurements_post (measurements: MeasurementSet): String {
         // create path and map variables
-        var path: String = "/measurements/v2".replace(/{format}/g,"xml");
+        var path: String = "/v1/measurements".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -160,7 +161,7 @@ public class MeasurementsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "measurements_v2_post";
+        token.completionEventType = "v1_measurements_post";
 
         token.returnType = null ;
         return requestId;
@@ -168,11 +169,58 @@ public class MeasurementsApi extends SwaggerApi {
     }
     
     /*
+     * Returns Measurement 
+     */
+    public function v1_measurements_daily_get (variableName: String, abbreviatedUnitName: String, startTime: String, endTime: String, groupingWidth: Number, groupingTimezone: String, limit: Number, offset: Number, sort: Number): String {
+        // create path and map variables
+        var path: String = "/v1/measurements/daily".replace(/{format}/g,"xml");
+
+        // query params
+        var queryParams: Dictionary = new Dictionary();
+        var headerParams: Dictionary = new Dictionary();
+
+        
+
+        if("null" != String(variableName))
+            queryParams["variableName"] = toPathValue(variableName);
+        if("null" != String(abbreviatedUnitName))
+            queryParams["abbreviatedUnitName"] = toPathValue(abbreviatedUnitName);
+        if("null" != String(startTime))
+            queryParams["startTime"] = toPathValue(startTime);
+        if("null" != String(endTime))
+            queryParams["endTime"] = toPathValue(endTime);
+        if("null" != String(groupingWidth))
+            queryParams["groupingWidth"] = toPathValue(groupingWidth);
+        if("null" != String(groupingTimezone))
+            queryParams["groupingTimezone"] = toPathValue(groupingTimezone);
+        if("null" != String(limit))
+            queryParams["limit"] = toPathValue(limit);
+        if("null" != String(offset))
+            queryParams["offset"] = toPathValue(offset);
+        if("null" != String(sort))
+            queryParams["sort"] = toPathValue(sort);
+        
+
+        
+
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
+
+        var requestId: String = getUniqueId();
+
+        token.requestId = requestId;
+        token.completionEventType = "v1_measurements_daily_get";
+
+        token.returnType = Measurement;
+        return requestId;
+
+    }
+    
+    /*
      * Returns MeasurementRange 
      */
-    public function measurements_range_get (sources: String, user: Number): String {
+    public function v1_measurements_range_get (sources: String, user: Number): String {
         // create path and map variables
-        var path: String = "/measurementsRange".replace(/{format}/g,"xml");
+        var path: String = "/v1/measurementsRange".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -193,7 +241,7 @@ public class MeasurementsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "measurements_range_get";
+        token.completionEventType = "v1_measurements_range_get";
 
         token.returnType = MeasurementRange;
         return requestId;

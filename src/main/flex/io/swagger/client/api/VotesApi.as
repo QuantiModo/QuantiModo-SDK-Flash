@@ -30,7 +30,7 @@ public class VotesApi extends SwaggerApi {
     /*
      * Returns CommonResponse 
      */
-    public function v1_votes_post (cause: String, effect: String, vote: Boolean): String {
+    public function v1_votes_post (cause: String, effect: String, correlation: Number, vote: Boolean): String {
         // create path and map variables
         var path: String = "/v1/votes".replace(/{format}/g,"xml");
 
@@ -44,6 +44,8 @@ public class VotesApi extends SwaggerApi {
             queryParams["cause"] = toPathValue(cause);
         if("null" != String(effect))
             queryParams["effect"] = toPathValue(effect);
+        if("null" != String(correlation))
+            queryParams["correlation"] = toPathValue(correlation);
         if("null" != String(vote))
             queryParams["vote"] = toPathValue(vote);
         

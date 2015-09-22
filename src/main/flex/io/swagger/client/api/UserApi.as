@@ -6,10 +6,10 @@ import io.swagger.exception.ApiError;
 import io.swagger.common.ApiUserCredentials;
 import io.swagger.event.Response;
 import io.swagger.common.SwaggerApi;
-import io.swagger.client.model.User;
 import io.swagger.client.model.UserTokenRequest;
 import io.swagger.client.model.UserTokenFailedResponse;
 import io.swagger.client.model.UserTokenSuccessfulResponse;
+import io.swagger.client.model.User;
 
 import mx.rpc.AsyncToken;
 import mx.utils.UIDUtil;
@@ -26,39 +26,10 @@ public class UserApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_user_me_get: String = "user_me_get";
         public static const event_v1_organizations_organization_id_users_post: String = "v1_organizations_organization_id_users_post";
+        public static const event_v1_user_me_get: String = "v1_user_me_get";
 
 
-    /*
-     * Returns User 
-     */
-    public function user_me_get (): String {
-        // create path and map variables
-        var path: String = "/user/me".replace(/{format}/g,"xml");
-
-        // query params
-        var queryParams: Dictionary = new Dictionary();
-        var headerParams: Dictionary = new Dictionary();
-
-        
-
-        
-
-        
-
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
-
-        var requestId: String = getUniqueId();
-
-        token.requestId = requestId;
-        token.completionEventType = "user_me_get";
-
-        token.returnType = User;
-        return requestId;
-
-    }
-    
     /*
      * Returns UserTokenSuccessfulResponse 
      */
@@ -84,6 +55,35 @@ public class UserApi extends SwaggerApi {
         token.completionEventType = "v1_organizations_organization_id_users_post";
 
         token.returnType = UserTokenSuccessfulResponse;
+        return requestId;
+
+    }
+    
+    /*
+     * Returns User 
+     */
+    public function v1_user_me_get (): String {
+        // create path and map variables
+        var path: String = "/v1/user/me".replace(/{format}/g,"xml");
+
+        // query params
+        var queryParams: Dictionary = new Dictionary();
+        var headerParams: Dictionary = new Dictionary();
+
+        
+
+        
+
+        
+
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "GET", queryParams, null, headerParams);
+
+        var requestId: String = getUniqueId();
+
+        token.requestId = requestId;
+        token.completionEventType = "v1_user_me_get";
+
+        token.returnType = User;
         return requestId;
 
     }

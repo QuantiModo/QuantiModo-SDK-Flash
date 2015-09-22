@@ -36,9 +36,16 @@ import io.swagger.client.model.Variable;
         /* Abbreviated name of the default unit for the variable */
         
         
-        [XmlElement(name="unit")]
+        [XmlElement(name="abbreviatedUnitName")]
         
-        public var unit: String = null;
+        public var abbreviatedUnitName: String = null;
+    
+        /* Id of the default unit for the variable */
+        
+        
+        [XmlElement(name="abbreviatedUnitId")]
+        
+        public var abbreviatedUnitId: Number = null;
     
         /* Comma-separated list of source names to limit variables to those sources */
         
@@ -186,7 +193,7 @@ import io.swagger.client.model.Variable;
         
         [XmlElement(name="lastUnit")]
         
-        public var lastUnit: Number = null;
+        public var lastUnit: String = null;
     
         /* Last value */
         
@@ -207,7 +214,7 @@ import io.swagger.client.model.Variable;
         
         [XmlElement(name="mostCommonUnit")]
         
-        public var mostCommonUnit: Number = null;
+        public var mostCommonUnit: String = null;
     
         /* Last source */
         
@@ -228,7 +235,9 @@ import io.swagger.client.model.Variable;
         
         str += " (category: " + category + ")";
         
-        str += " (unit: " + unit + ")";
+        str += " (abbreviatedUnitName: " + abbreviatedUnitName + ")";
+        
+        str += " (abbreviatedUnitId: " + abbreviatedUnitId + ")";
         
         str += " (sources: " + sources + ")";
         

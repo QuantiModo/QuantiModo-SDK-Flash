@@ -18,12 +18,26 @@ package io.swagger.client.model {
         
         public var cause: String = null;
     
+        /* original name of the cause. */
+        
+        
+        [XmlElement(name="originalCause")]
+        
+        public var originalCause: String = null;
+    
         /* ORIGINAL variable name of the effect variable for which the user desires correlations. */
         
         
         [XmlElement(name="effect")]
         
         public var effect: String = null;
+    
+        /* effect variable original name. */
+        
+        
+        [XmlElement(name="originalEffect")]
+        
+        public var originalEffect: String = null;
     
         /* User estimated or default time after cause measurement before a perceivable effect is observed */
         
@@ -95,6 +109,55 @@ package io.swagger.client.model {
         
         public var effectCategory: String = null;
     
+        /* cause value that predicts an above average effect value (in default unit for cause variable) */
+        
+        
+        [XmlElement(name="valuePredictingHighOutcome")]
+        
+        public var valuePredictingHighOutcome: Number = null;
+    
+        /* cause value that predicts a below average effect value (in default unit for cause variable) */
+        
+        
+        [XmlElement(name="valuePredictingLowOutcome")]
+        
+        public var valuePredictingLowOutcome: Number = null;
+    
+        /* Optimal Pearson Product */
+        
+        
+        [XmlElement(name="optimalPearsonProduct")]
+        
+        public var optimalPearsonProduct: Number = null;
+    
+        /* Average Vote */
+        
+        
+        [XmlElement(name="averageVote")]
+        
+        public var averageVote: Number = null;
+    
+        /* User Vote */
+        
+        
+        [XmlElement(name="userVote")]
+        
+        public var userVote: Number = null;
+    
+        /* Unit of Cause */
+        
+        
+        [XmlElement(name="causeUnit")]
+        
+        public var causeUnit: String = null;
+    
+        /* Unit Id of Cause */
+        
+        
+        [XmlElement(name="causeUnitId")]
+        
+        public var causeUnitId: Number = null;
+    
 
     public function toString(): String {
         var str: String = "Correlation: ";
@@ -103,7 +166,11 @@ package io.swagger.client.model {
         
         str += " (cause: " + cause + ")";
         
+        str += " (originalCause: " + originalCause + ")";
+        
         str += " (effect: " + effect + ")";
+        
+        str += " (originalEffect: " + originalEffect + ")";
         
         str += " (onsetDelay: " + onsetDelay + ")";
         
@@ -124,6 +191,20 @@ package io.swagger.client.model {
         str += " (causeCategory: " + causeCategory + ")";
         
         str += " (effectCategory: " + effectCategory + ")";
+        
+        str += " (valuePredictingHighOutcome: " + valuePredictingHighOutcome + ")";
+        
+        str += " (valuePredictingLowOutcome: " + valuePredictingLowOutcome + ")";
+        
+        str += " (optimalPearsonProduct: " + optimalPearsonProduct + ")";
+        
+        str += " (averageVote: " + averageVote + ")";
+        
+        str += " (userVote: " + userVote + ")";
+        
+        str += " (causeUnit: " + causeUnit + ")";
+        
+        str += " (causeUnitId: " + causeUnitId + ")";
         
         return str;
     }

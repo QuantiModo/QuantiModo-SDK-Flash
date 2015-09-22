@@ -24,17 +24,17 @@ public class UnitsApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_unit_categories_get: String = "unit_categories_get";
-        public static const event_units_get: String = "units_get";
-        public static const event_units_variable_get: String = "units_variable_get";
+        public static const event_v1_unit_categories_get: String = "v1_unit_categories_get";
+        public static const event_v1_units_get: String = "v1_units_get";
+        public static const event_v1_units_variable_get: String = "v1_units_variable_get";
 
 
     /*
      * Returns UnitCategory 
      */
-    public function unit_categories_get (): String {
+    public function v1_unit_categories_get (): String {
         // create path and map variables
-        var path: String = "/unitCategories".replace(/{format}/g,"xml");
+        var path: String = "/v1/unitCategories".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -51,7 +51,7 @@ public class UnitsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "unit_categories_get";
+        token.completionEventType = "v1_unit_categories_get";
 
         token.returnType = UnitCategory;
         return requestId;
@@ -61,9 +61,9 @@ public class UnitsApi extends SwaggerApi {
     /*
      * Returns Array 
      */
-    public function units_get (unitName: String, abbreviatedUnitName: String, categoryName: String): String {
+    public function v1_units_get (unitName: String, abbreviatedUnitName: String, categoryName: String): String {
         // create path and map variables
-        var path: String = "/units".replace(/{format}/g,"xml");
+        var path: String = "/v1/units".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -86,7 +86,7 @@ public class UnitsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "units_get";
+        token.completionEventType = "v1_units_get";
 
         token.returnType = Array;
         return requestId;
@@ -96,9 +96,9 @@ public class UnitsApi extends SwaggerApi {
     /*
      * Returns Array 
      */
-    public function units_variable_get (unitName: String, abbreviatedUnitName: String, categoryName: String, variable: String): String {
+    public function v1_units_variable_get (unitName: String, abbreviatedUnitName: String, categoryName: String, variable: String): String {
         // create path and map variables
-        var path: String = "/unitsVariable".replace(/{format}/g,"xml");
+        var path: String = "/v1/unitsVariable".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -123,7 +123,7 @@ public class UnitsApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "units_variable_get";
+        token.completionEventType = "v1_units_variable_get";
 
         token.returnType = Array;
         return requestId;

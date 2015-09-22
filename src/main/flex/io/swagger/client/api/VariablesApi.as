@@ -26,60 +26,22 @@ public class VariablesApi extends SwaggerApi {
         super(apiCredentials, eventDispatcher);
     }
 
-        public static const event_correlations_post: String = "correlations_post";
-        public static const event_public_variables_get: String = "public_variables_get";
-        public static const event_public_variables_search_search_get: String = "public_variables_search_search_get";
+        public static const event_v1_public_variables_get: String = "v1_public_variables_get";
+        public static const event_v1_public_variables_search_search_get: String = "v1_public_variables_search_search_get";
         public static const event_v1_user_variables_post: String = "v1_user_variables_post";
-        public static const event_variable_categories_get: String = "variable_categories_get";
-        public static const event_variables_get: String = "variables_get";
-        public static const event_variables_post: String = "variables_post";
-        public static const event_variables_search_search_get: String = "variables_search_search_get";
-        public static const event_variables_variable_name_get: String = "variables_variable_name_get";
+        public static const event_v1_variable_categories_get: String = "v1_variable_categories_get";
+        public static const event_v1_variables_get: String = "v1_variables_get";
+        public static const event_v1_variables_post: String = "v1_variables_post";
+        public static const event_v1_variables_search_search_get: String = "v1_variables_search_search_get";
+        public static const event_v1_variables_variable_name_get: String = "v1_variables_variable_name_get";
 
 
-    /*
-     * Returns void 
-     */
-    public function correlations_post (cause: String, effect: String, correlationcoefficient: String, vote: String): String {
-        // create path and map variables
-        var path: String = "/correlations".replace(/{format}/g,"xml");
-
-        // query params
-        var queryParams: Dictionary = new Dictionary();
-        var headerParams: Dictionary = new Dictionary();
-
-        
-
-        if("null" != String(cause))
-            queryParams["cause"] = toPathValue(cause);
-        if("null" != String(effect))
-            queryParams["effect"] = toPathValue(effect);
-        if("null" != String(correlationcoefficient))
-            queryParams["correlationcoefficient"] = toPathValue(correlationcoefficient);
-        if("null" != String(vote))
-            queryParams["vote"] = toPathValue(vote);
-        
-
-        
-
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, null, headerParams);
-
-        var requestId: String = getUniqueId();
-
-        token.requestId = requestId;
-        token.completionEventType = "correlations_post";
-
-        token.returnType = null ;
-        return requestId;
-
-    }
-    
     /*
      * Returns Variable 
      */
-    public function public_variables_get (): String {
+    public function v1_public_variables_get (): String {
         // create path and map variables
-        var path: String = "/public/variables".replace(/{format}/g,"xml");
+        var path: String = "/v1/public/variables".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -96,7 +58,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "public_variables_get";
+        token.completionEventType = "v1_public_variables_get";
 
         token.returnType = Variable;
         return requestId;
@@ -106,9 +68,9 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Variable 
      */
-    public function public_variables_search_search_get (search: String, effectOrCause: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_public_variables_search_search_get (search: String, effectOrCause: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
-        var path: String = "/public/variables/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
+        var path: String = "/v1/public/variables/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -133,7 +95,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "public_variables_search_search_get";
+        token.completionEventType = "v1_public_variables_search_search_get";
 
         token.returnType = Variable;
         return requestId;
@@ -172,9 +134,9 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Array 
      */
-    public function variable_categories_get (): String {
+    public function v1_variable_categories_get (): String {
         // create path and map variables
-        var path: String = "/variableCategories".replace(/{format}/g,"xml");
+        var path: String = "/v1/variableCategories".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -191,7 +153,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "variable_categories_get";
+        token.completionEventType = "v1_variable_categories_get";
 
         token.returnType = Array;
         return requestId;
@@ -201,9 +163,9 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Variable 
      */
-    public function variables_get (userId: Number, category: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_variables_get (userId: Number, category: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
-        var path: String = "/variables".replace(/{format}/g,"xml");
+        var path: String = "/v1/variables".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -230,7 +192,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "variables_get";
+        token.completionEventType = "v1_variables_get";
 
         token.returnType = Variable;
         return requestId;
@@ -240,9 +202,9 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns void 
      */
-    public function variables_post (variableName: VariablesNew): String {
+    public function v1_variables_post (variableName: VariablesNew): String {
         // create path and map variables
-        var path: String = "/variables".replace(/{format}/g,"xml");
+        var path: String = "/v1/variables".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -259,7 +221,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "variables_post";
+        token.completionEventType = "v1_variables_post";
 
         token.returnType = null ;
         return requestId;
@@ -269,9 +231,9 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Array 
      */
-    public function variables_search_search_get (search: String, categoryName: String, source: String, limit: Number, offset: Number): String {
+    public function v1_variables_search_search_get (search: String, categoryName: String, source: String, limit: Number, offset: Number): String {
         // create path and map variables
-        var path: String = "/variables/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
+        var path: String = "/v1/variables/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -296,7 +258,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "variables_search_search_get";
+        token.completionEventType = "v1_variables_search_search_get";
 
         token.returnType = Array;
         return requestId;
@@ -306,9 +268,9 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Variable 
      */
-    public function variables_variable_name_get (variableName: String): String {
+    public function v1_variables_variable_name_get (variableName: String): String {
         // create path and map variables
-        var path: String = "/variables/{variableName}".replace(/{format}/g,"xml").replace("{" + "variableName" + "}", getApiInvoker().escapeString(variableName));
+        var path: String = "/v1/variables/{variableName}".replace(/{format}/g,"xml").replace("{" + "variableName" + "}", getApiInvoker().escapeString(variableName));
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -325,7 +287,7 @@ public class VariablesApi extends SwaggerApi {
         var requestId: String = getUniqueId();
 
         token.requestId = requestId;
-        token.completionEventType = "variables_variable_name_get";
+        token.completionEventType = "v1_variables_variable_name_get";
 
         token.returnType = Variable;
         return requestId;
