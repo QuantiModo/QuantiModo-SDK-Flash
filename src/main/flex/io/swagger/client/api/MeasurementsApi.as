@@ -95,7 +95,7 @@ public class MeasurementsApi extends SwaggerApi {
     /*
      * Returns Measurement 
      */
-    public function v1_measurements_get (variableName: String, unit: String, startTime: String, endTime: String, groupingWidth: Number, groupingTimezone: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_measurements_get (variableName: String, source: String, value: String, lastUpdated: String, unit: String, startTime: String, endTime: String, groupingWidth: Number, groupingTimezone: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
         var path: String = "/v1/measurements".replace(/{format}/g,"xml");
 
@@ -107,6 +107,12 @@ public class MeasurementsApi extends SwaggerApi {
 
         if("null" != String(variableName))
             queryParams["variableName"] = toPathValue(variableName);
+        if("null" != String(source))
+            queryParams["source"] = toPathValue(source);
+        if("null" != String(value))
+            queryParams["value"] = toPathValue(value);
+        if("null" != String(lastUpdated))
+            queryParams["lastUpdated"] = toPathValue(lastUpdated);
         if("null" != String(unit))
             queryParams["unit"] = toPathValue(unit);
         if("null" != String(startTime))

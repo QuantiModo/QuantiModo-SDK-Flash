@@ -42,7 +42,7 @@ public class CorrelationsApi extends SwaggerApi {
     /*
      * Returns Array 
      */
-    public function v1_correlations_get (effect: String, cause: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_correlations_get (effect: String, cause: String, correlationCoefficient: String, onsetDelay: String, durationOfAction: String, lastUpdated: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
         var path: String = "/v1/correlations".replace(/{format}/g,"xml");
 
@@ -56,6 +56,14 @@ public class CorrelationsApi extends SwaggerApi {
             queryParams["effect"] = toPathValue(effect);
         if("null" != String(cause))
             queryParams["cause"] = toPathValue(cause);
+        if("null" != String(correlationCoefficient))
+            queryParams["correlationCoefficient"] = toPathValue(correlationCoefficient);
+        if("null" != String(onsetDelay))
+            queryParams["onsetDelay"] = toPathValue(onsetDelay);
+        if("null" != String(durationOfAction))
+            queryParams["durationOfAction"] = toPathValue(durationOfAction);
+        if("null" != String(lastUpdated))
+            queryParams["lastUpdated"] = toPathValue(lastUpdated);
         if("null" != String(limit))
             queryParams["limit"] = toPathValue(limit);
         if("null" != String(offset))

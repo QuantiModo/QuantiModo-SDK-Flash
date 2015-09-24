@@ -68,7 +68,7 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Variable 
      */
-    public function v1_public_variables_search_search_get (search: String, effectOrCause: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_public_variables_search_search_get (search: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
         var path: String = "/v1/public/variables/search/{search}".replace(/{format}/g,"xml").replace("{" + "search" + "}", getApiInvoker().escapeString(search));
 
@@ -78,8 +78,6 @@ public class VariablesApi extends SwaggerApi {
 
         
 
-        if("null" != String(effectOrCause))
-            queryParams["effectOrCause"] = toPathValue(effectOrCause);
         if("null" != String(limit))
             queryParams["limit"] = toPathValue(limit);
         if("null" != String(offset))
@@ -163,7 +161,7 @@ public class VariablesApi extends SwaggerApi {
     /*
      * Returns Variable 
      */
-    public function v1_variables_get (userId: Number, category: String, limit: Number, offset: Number, sort: Number): String {
+    public function v1_variables_get (userId: Number, category: String, name: String, lastUpdated: String, source: String, latestMeasurementTime: String, numberOfMeasurements: String, lastSource: String, limit: Number, offset: Number, sort: Number): String {
         // create path and map variables
         var path: String = "/v1/variables".replace(/{format}/g,"xml");
 
@@ -177,6 +175,18 @@ public class VariablesApi extends SwaggerApi {
             queryParams["userId"] = toPathValue(userId);
         if("null" != String(category))
             queryParams["category"] = toPathValue(category);
+        if("null" != String(name))
+            queryParams["name"] = toPathValue(name);
+        if("null" != String(lastUpdated))
+            queryParams["lastUpdated"] = toPathValue(lastUpdated);
+        if("null" != String(source))
+            queryParams["source"] = toPathValue(source);
+        if("null" != String(latestMeasurementTime))
+            queryParams["latestMeasurementTime"] = toPathValue(latestMeasurementTime);
+        if("null" != String(numberOfMeasurements))
+            queryParams["numberOfMeasurements"] = toPathValue(numberOfMeasurements);
+        if("null" != String(lastSource))
+            queryParams["lastSource"] = toPathValue(lastSource);
         if("null" != String(limit))
             queryParams["limit"] = toPathValue(limit);
         if("null" != String(offset))

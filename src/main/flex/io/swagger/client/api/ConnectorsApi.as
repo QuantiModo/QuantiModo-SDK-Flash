@@ -39,7 +39,7 @@ public class ConnectorsApi extends SwaggerApi {
     /*
      * Returns void 
      */
-    public function v1_connect/js_get (t: String): String {
+    public function v1_connect/js_get (access token: String, mashape key: String): String {
         // create path and map variables
         var path: String = "/v1/connect.js".replace(/{format}/g,"xml");
 
@@ -49,8 +49,10 @@ public class ConnectorsApi extends SwaggerApi {
 
         
 
-        if("null" != String(t))
-            queryParams["t"] = toPathValue(t);
+        if("null" != String(access token))
+            queryParams["access token"] = toPathValue(access token);
+        if("null" != String(mashape key))
+            queryParams["mashape key"] = toPathValue(mashape key);
         
 
         
