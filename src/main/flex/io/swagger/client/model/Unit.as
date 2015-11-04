@@ -1,10 +1,23 @@
 package io.swagger.client.model {
 
-import io.swagger.client.model.ConversionStep;
 
     [XmlRootNode(name="Unit")]
     public class Unit {
         
+        /* id */
+        
+        
+        [XmlElement(name="id")]
+        
+        public var id: Number = 0;
+    
+        /* client_id */
+        
+        
+        [XmlElement(name="client_id")]
+        
+        public var clientId: String = null;
+    
         /* Unit name */
         
         
@@ -15,57 +28,102 @@ import io.swagger.client.model.ConversionStep;
         /* Unit abbreviation */
         
         
-        [XmlElement(name="abbreviatedName")]
+        [XmlElement(name="abbreviated_name")]
         
         public var abbreviatedName: String = null;
     
-        /* Unit category */
+        /* Unit category ID */
         
         
-        [XmlElement(name="category")]
+        [XmlElement(name="category_id")]
         
-        public var category: String = null;
+        public var categoryId: Number = null;
     
         /* Unit minimum value */
         
         
-        [XmlElement(name="minimum")]
+        [XmlElement(name="minimum_value")]
         
-        public var minimum: Number = 0.0;
+        public var minimumValue: Number = 0.0;
     
         /* Unit maximum value */
         
         
-        [XmlElement(name="maximum")]
+        [XmlElement(name="maximum_value")]
         
-        public var maximum: Number = 0.0;
+        public var maximumValue: Number = 0.0;
     
-        /* Conversion steps list */
+        /* updated */
         
         
-        // This declaration below of _conversionSteps_obj_class is to force flash compiler to include this class
-        private var _conversionSteps_obj_class: Array = null;
-        [XmlElementWrapper(name="conversionSteps")]
-        [XmlElements(name="conversionSteps", type="Array")]
+        [XmlElement(name="updated")]
+        
+        public var updated: Number = 0;
+    
+        /* ID of default unit */
         
         
-        public var conversionSteps: Array = new Array();
+        [XmlElement(name="default_unit_id")]
+        
+        public var defaultUnitId: Number = 0;
+    
+        /* Value multiplied to */
+        
+        
+        [XmlElement(name="multiply")]
+        
+        public var multiply: Number = 0.0;
+    
+        /* Value which should be added to convert to default unit */
+        
+        
+        [XmlElement(name="add")]
+        
+        public var add_: Number = 0.0;
+    
+        /* created_at */
+        
+        
+        [XmlElement(name="created_at")]
+        
+        public var createdAt: Date = null;
+    
+        /* updated_at */
+        
+        
+        [XmlElement(name="updated_at")]
+        
+        public var updatedAt: Date = null;
     
 
     public function toString(): String {
         var str: String = "Unit: ";
         
+        str += " (id: " + id + ")";
+        
+        str += " (clientId: " + clientId + ")";
+        
         str += " (name: " + name + ")";
         
         str += " (abbreviatedName: " + abbreviatedName + ")";
         
-        str += " (category: " + category + ")";
+        str += " (categoryId: " + categoryId + ")";
         
-        str += " (minimum: " + minimum + ")";
+        str += " (minimumValue: " + minimumValue + ")";
         
-        str += " (maximum: " + maximum + ")";
+        str += " (maximumValue: " + maximumValue + ")";
         
-        str += " (conversionSteps: " + conversionSteps + ")";
+        str += " (updated: " + updated + ")";
+        
+        str += " (defaultUnitId: " + defaultUnitId + ")";
+        
+        str += " (multiply: " + multiply + ")";
+        
+        str += " (add_: " + add_ + ")";
+        
+        str += " (createdAt: " + createdAt + ")";
+        
+        str += " (updatedAt: " + updatedAt + ")";
         
         return str;
     }

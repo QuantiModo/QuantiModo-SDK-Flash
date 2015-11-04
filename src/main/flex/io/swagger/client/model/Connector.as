@@ -9,7 +9,7 @@ package io.swagger.client.model {
         
         [XmlElement(name="id")]
         
-        public var id: Number = null;
+        public var id: Number = 0;
     
         /* Connector lowercase system name */
         
@@ -21,7 +21,7 @@ package io.swagger.client.model {
         /* Connector pretty display name */
         
         
-        [XmlElement(name="displayName")]
+        [XmlElement(name="display_name")]
         
         public var displayName: String = null;
     
@@ -35,44 +35,37 @@ package io.swagger.client.model {
         /* URL to a site where one can get this device or application */
         
         
-        [XmlElement(name="getItUrl")]
+        [XmlElement(name="get_it_url")]
         
         public var getItUrl: String = null;
     
-        /* True if the authenticated user has this connector enabled */
+        /* Short description */
         
         
-        [XmlElement(name="connected")]
+        [XmlElement(name="short_description")]
         
-        public var connected: String = null;
+        public var shortDescription: String = null;
     
-        /* URL and parameters used when connecting to a service */
+        /* Long description */
         
         
-        [XmlElement(name="connectInstructions")]
+        [XmlElement(name="long_description")]
         
-        public var connectInstructions: String = null;
+        public var longDescription: String = null;
     
-        /* Epoch timestamp of last sync */
+        /* enabled */
         
         
-        [XmlElement(name="lastUpdate")]
+        [XmlElement(name="enabled")]
         
-        public var lastUpdate: Number = null;
+        public var enabled: Boolean = false;
     
-        /* Number of measurements obtained during latest update */
+        /* oauth */
         
         
-        [XmlElement(name="totalMeasurementsInLastUpdate")]
+        [XmlElement(name="oauth")]
         
-        public var totalMeasurementsInLastUpdate: Number = null;
-    
-        /* True if user has no measurements for this connector */
-        
-        
-        [XmlElement(name="noDataYet")]
-        
-        public var noDataYet: Boolean = false;
+        public var oauth: Boolean = false;
     
 
     public function toString(): String {
@@ -88,15 +81,13 @@ package io.swagger.client.model {
         
         str += " (getItUrl: " + getItUrl + ")";
         
-        str += " (connected: " + connected + ")";
+        str += " (shortDescription: " + shortDescription + ")";
         
-        str += " (connectInstructions: " + connectInstructions + ")";
+        str += " (longDescription: " + longDescription + ")";
         
-        str += " (lastUpdate: " + lastUpdate + ")";
+        str += " (enabled: " + enabled + ")";
         
-        str += " (totalMeasurementsInLastUpdate: " + totalMeasurementsInLastUpdate + ")";
-        
-        str += " (noDataYet: " + noDataYet + ")";
+        str += " (oauth: " + oauth + ")";
         
         return str;
     }

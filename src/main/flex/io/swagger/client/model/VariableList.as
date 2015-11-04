@@ -1,7 +1,6 @@
 package io.swagger.client.model {
 
 import io.swagger.common.ListWrapper;
-import io.swagger.client.model.Variable;
 
     public class VariableList implements ListWrapper {
         // This declaration below of _Variable_obj_class is to force flash compiler to include this class

@@ -1,227 +1,260 @@
 package io.swagger.client.model {
 
-import io.swagger.client.model.Variable;
 
     [XmlRootNode(name="Variable")]
     public class Variable {
         
-        /* Variable ID */
+        /* id */
         
         
         [XmlElement(name="id")]
         
-        public var id: Number = null;
+        public var id: Number = 0;
     
-        /* User-defined variable display name. */
+        /* client_id */
+        
+        
+        [XmlElement(name="client_id")]
+        
+        public var clientId: String = null;
+    
+        /* parent_id */
+        
+        
+        [XmlElement(name="parent_id")]
+        
+        public var parentId: Number = 0;
+    
+        /* Name of the variable */
         
         
         [XmlElement(name="name")]
         
         public var name: String = null;
     
-        /* Name used when the variable was originally created in the `variables` table. */
+        /* Category of the variable */
         
         
-        [XmlElement(name="originalName")]
+        [XmlElement(name="variable_category_id")]
         
-        public var originalName: String = null;
+        public var variableCategoryId: Number = 0;
     
-        /* Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc. */
+        /* ID of the default unit of measurement to use for this variable */
         
         
-        [XmlElement(name="category")]
+        [XmlElement(name="default_unit_id")]
         
-        public var category: String = null;
+        public var defaultUnitId: Number = 0;
     
-        /* Abbreviated name of the default unit for the variable */
+        /* How to combine values of this variable (for instance, to see a summary of the values over a month) 0 for sum OR 1 for mean */
         
         
-        [XmlElement(name="abbreviatedUnitName")]
-        
-        public var abbreviatedUnitName: String = null;
-    
-        /* Id of the default unit for the variable */
-        
-        
-        [XmlElement(name="abbreviatedUnitId")]
-        
-        public var abbreviatedUnitId: Number = null;
-    
-        /* Comma-separated list of source names to limit variables to those sources */
-        
-        
-        [XmlElement(name="sources")]
-        
-        public var sources: String = null;
-    
-        /* Minimum reasonable value for this variable (uses default unit) */
-        
-        
-        [XmlElement(name="minimumValue")]
-        
-        public var minimumValue: Number = 0.0;
-    
-        /* Maximum reasonable value for this variable (uses default unit) */
-        
-        
-        [XmlElement(name="maximumValue")]
-        
-        public var maximumValue: Number = 0.0;
-    
-        /* How to aggregate measurements over time. */
-        
-        
-        [XmlElement(name="combinationOperation")]
+        [XmlElement(name="combination_operation")]
         
         public var combinationOperation: String = null;
     
-        /* Value for replacing null measurements */
+        /* filling_value */
         
         
-        [XmlElement(name="fillingValue")]
+        [XmlElement(name="filling_value")]
         
         public var fillingValue: Number = 0.0;
     
-        /* The Variable this Variable should be joined with. If the variable is joined with some other variable then it is not shown to user in the list of variables. */
+        /* maximum_allowed_value */
         
         
-        [XmlElement(name="joinWith")]
+        [XmlElement(name="maximum_allowed_value")]
         
-        public var joinWith: String = null;
+        public var maximumAllowedValue: Number = 0.0;
     
-        /* Array of Variables that are joined with this Variable */
+        /* minimum_allowed_value */
         
         
-        // This declaration below of _joinedVariables_obj_class is to force flash compiler to include this class
-        private var _joinedVariables_obj_class: Array = null;
-        [XmlElementWrapper(name="joinedVariables")]
-        [XmlElements(name="joinedVariables", type="Array")]
+        [XmlElement(name="minimum_allowed_value")]
         
-        
-        public var joinedVariables: Array = new Array();
+        public var minimumAllowedValue: Number = 0.0;
     
-        /* Id of the parent variable if this variable has any parent */
+        /* onset_delay */
         
         
-        [XmlElement(name="parent")]
+        [XmlElement(name="onset_delay")]
         
-        public var parent: Number = null;
+        public var onsetDelay: Number = 0;
     
-        /* Array of Variables that are sub variables to this Variable */
+        /* duration_of_action */
         
         
-        // This declaration below of _subVariables_obj_class is to force flash compiler to include this class
-        private var _subVariables_obj_class: Array = null;
-        [XmlElementWrapper(name="subVariables")]
-        [XmlElements(name="subVariables", type="Array")]
+        [XmlElement(name="duration_of_action")]
         
-        
-        public var subVariables: Array = new Array();
+        public var durationOfAction: Number = 0;
     
-        /* How long it takes for a measurement in this variable to take effect */
+        /* public */
         
         
-        [XmlElement(name="onsetDelay")]
+        [XmlElement(name="public")]
         
-        public var onsetDelay: Number = null;
+        public var public: Number = 0;
     
-        /* How long the effect of a measurement in this variable lasts */
+        /* cause_only */
         
         
-        [XmlElement(name="durationOfAction")]
+        [XmlElement(name="cause_only")]
         
-        public var durationOfAction: Number = null;
+        public var causeOnly: Boolean = false;
     
-        /* Earliest measurement time */
+        /* most_common_value */
         
         
-        [XmlElement(name="earliestMeasurementTime")]
+        [XmlElement(name="most_common_value")]
         
-        public var earliestMeasurementTime: Number = null;
+        public var mostCommonValue: Number = 0.0;
     
-        /* Latest measurement time */
+        /* most_common_unit_id */
         
         
-        [XmlElement(name="latestMeasurementTime")]
+        [XmlElement(name="most_common_unit_id")]
         
-        public var latestMeasurementTime: Number = null;
+        public var mostCommonUnitId: Number = 0;
     
-        /* When this variable or its settings were last updated */
+        /* standard_deviation */
         
         
-        [XmlElement(name="updated")]
+        [XmlElement(name="standard_deviation")]
         
-        public var updated: Number = null;
+        public var standardDeviation: Number = 0.0;
     
-        /* A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user. */
+        /* variance */
         
         
-        [XmlElement(name="causeOnly")]
+        [XmlElement(name="variance")]
         
-        public var causeOnly: Number = null;
+        public var variance: Number = 0.0;
     
-        /* Number of correlations */
+        /* mean */
         
         
-        [XmlElement(name="numberOfCorrelations")]
+        [XmlElement(name="mean")]
         
-        public var numberOfCorrelations: Number = null;
+        public var mean: Number = 0.0;
     
-        /* Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables. */
+        /* median */
+        
+        
+        [XmlElement(name="median")]
+        
+        public var median: Number = 0.0;
+    
+        /* number_of_measurements */
+        
+        
+        [XmlElement(name="number_of_measurements")]
+        
+        public var numberOfMeasurements: Number = 0.0;
+    
+        /* number_of_unique_values */
+        
+        
+        [XmlElement(name="number_of_unique_values")]
+        
+        public var numberOfUniqueValues: Number = 0.0;
+    
+        /* skewness */
+        
+        
+        [XmlElement(name="skewness")]
+        
+        public var skewness: Number = 0.0;
+    
+        /* kurtosis */
+        
+        
+        [XmlElement(name="kurtosis")]
+        
+        public var kurtosis: Number = 0.0;
+    
+        /* status */
+        
+        
+        [XmlElement(name="status")]
+        
+        public var status: String = null;
+    
+        /* error_message */
+        
+        
+        [XmlElement(name="error_message")]
+        
+        public var errorMessage: String = null;
+    
+        /* last_successful_update_time */
+        
+        
+        [XmlElement(name="last_successful_update_time")]
+        
+        public var lastSuccessfulUpdateTime: Date = null;
+    
+        /* created_at */
+        
+        
+        [XmlElement(name="created_at")]
+        
+        public var createdAt: Date = null;
+    
+        /* updated_at */
+        
+        
+        [XmlElement(name="updated_at")]
+        
+        public var updatedAt: Date = null;
+    
+        /* product_url */
+        
+        
+        [XmlElement(name="product_url")]
+        
+        public var productUrl: String = null;
+    
+        /* image_url */
+        
+        
+        [XmlElement(name="image_url")]
+        
+        public var imageUrl: String = null;
+    
+        /* price */
+        
+        
+        [XmlElement(name="price")]
+        
+        public var price: Number = 0.0;
+    
+        /* number_of_user_variables */
+        
+        
+        [XmlElement(name="number_of_user_variables")]
+        
+        public var numberOfUserVariables: Number = 0;
+    
+        /* outcome */
         
         
         [XmlElement(name="outcome")]
         
-        public var outcome: Number = null;
+        public var outcome: Boolean = false;
     
-        /* The number of measurements that a given user had for this variable the last time a correlation calculation was performed. Generally correlation values are only updated once the current number of measurements for a variable is more than 10% greater than the measurementsAtLastAnalysis.  This avoids a computationally-demanding recalculation when there&#39;s not enough new data to make a significant difference in the correlation. */
+        /* minimum_recorded_value */
         
         
-        [XmlElement(name="measurementsAtLastAnalysis")]
+        [XmlElement(name="minimum_recorded_value")]
         
-        public var measurementsAtLastAnalysis: Number = null;
+        public var minimumRecordedValue: Number = 0.0;
     
-        /* Number of measurements */
+        /* maximum_recorded_value */
         
         
-        [XmlElement(name="numberOfMeasurements")]
+        [XmlElement(name="maximum_recorded_value")]
         
-        public var numberOfMeasurements: Number = null;
-    
-        /* Last unit */
-        
-        
-        [XmlElement(name="lastUnit")]
-        
-        public var lastUnit: String = null;
-    
-        /* Last value */
-        
-        
-        [XmlElement(name="lastValue")]
-        
-        public var lastValue: Number = null;
-    
-        /* Most common value */
-        
-        
-        [XmlElement(name="mostCommonValue")]
-        
-        public var mostCommonValue: Number = null;
-    
-        /* Most common unit */
-        
-        
-        [XmlElement(name="mostCommonUnit")]
-        
-        public var mostCommonUnit: String = null;
-    
-        /* Last source */
-        
-        
-        [XmlElement(name="lastSource")]
-        
-        public var lastSource: Number = null;
+        public var maximumRecordedValue: Number = 0.0;
     
 
     public function toString(): String {
@@ -229,63 +262,75 @@ import io.swagger.client.model.Variable;
         
         str += " (id: " + id + ")";
         
+        str += " (clientId: " + clientId + ")";
+        
+        str += " (parentId: " + parentId + ")";
+        
         str += " (name: " + name + ")";
         
-        str += " (originalName: " + originalName + ")";
+        str += " (variableCategoryId: " + variableCategoryId + ")";
         
-        str += " (category: " + category + ")";
-        
-        str += " (abbreviatedUnitName: " + abbreviatedUnitName + ")";
-        
-        str += " (abbreviatedUnitId: " + abbreviatedUnitId + ")";
-        
-        str += " (sources: " + sources + ")";
-        
-        str += " (minimumValue: " + minimumValue + ")";
-        
-        str += " (maximumValue: " + maximumValue + ")";
+        str += " (defaultUnitId: " + defaultUnitId + ")";
         
         str += " (combinationOperation: " + combinationOperation + ")";
         
         str += " (fillingValue: " + fillingValue + ")";
         
-        str += " (joinWith: " + joinWith + ")";
+        str += " (maximumAllowedValue: " + maximumAllowedValue + ")";
         
-        str += " (joinedVariables: " + joinedVariables + ")";
-        
-        str += " (parent: " + parent + ")";
-        
-        str += " (subVariables: " + subVariables + ")";
+        str += " (minimumAllowedValue: " + minimumAllowedValue + ")";
         
         str += " (onsetDelay: " + onsetDelay + ")";
         
         str += " (durationOfAction: " + durationOfAction + ")";
         
-        str += " (earliestMeasurementTime: " + earliestMeasurementTime + ")";
-        
-        str += " (latestMeasurementTime: " + latestMeasurementTime + ")";
-        
-        str += " (updated: " + updated + ")";
+        str += " (public: " + public + ")";
         
         str += " (causeOnly: " + causeOnly + ")";
         
-        str += " (numberOfCorrelations: " + numberOfCorrelations + ")";
+        str += " (mostCommonValue: " + mostCommonValue + ")";
         
-        str += " (outcome: " + outcome + ")";
+        str += " (mostCommonUnitId: " + mostCommonUnitId + ")";
         
-        str += " (measurementsAtLastAnalysis: " + measurementsAtLastAnalysis + ")";
+        str += " (standardDeviation: " + standardDeviation + ")";
+        
+        str += " (variance: " + variance + ")";
+        
+        str += " (mean: " + mean + ")";
+        
+        str += " (median: " + median + ")";
         
         str += " (numberOfMeasurements: " + numberOfMeasurements + ")";
         
-        str += " (lastUnit: " + lastUnit + ")";
+        str += " (numberOfUniqueValues: " + numberOfUniqueValues + ")";
         
-        str += " (lastValue: " + lastValue + ")";
+        str += " (skewness: " + skewness + ")";
         
-        str += " (mostCommonValue: " + mostCommonValue + ")";
+        str += " (kurtosis: " + kurtosis + ")";
         
-        str += " (mostCommonUnit: " + mostCommonUnit + ")";
+        str += " (status: " + status + ")";
         
-        str += " (lastSource: " + lastSource + ")";
+        str += " (errorMessage: " + errorMessage + ")";
+        
+        str += " (lastSuccessfulUpdateTime: " + lastSuccessfulUpdateTime + ")";
+        
+        str += " (createdAt: " + createdAt + ")";
+        
+        str += " (updatedAt: " + updatedAt + ")";
+        
+        str += " (productUrl: " + productUrl + ")";
+        
+        str += " (imageUrl: " + imageUrl + ")";
+        
+        str += " (price: " + price + ")";
+        
+        str += " (numberOfUserVariables: " + numberOfUserVariables + ")";
+        
+        str += " (outcome: " + outcome + ")";
+        
+        str += " (minimumRecordedValue: " + minimumRecordedValue + ")";
+        
+        str += " (maximumRecordedValue: " + maximumRecordedValue + ")";
         
         return str;
     }

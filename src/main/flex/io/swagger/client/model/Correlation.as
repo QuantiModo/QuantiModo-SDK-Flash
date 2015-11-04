@@ -4,173 +4,189 @@ package io.swagger.client.model {
     [XmlRootNode(name="Correlation")]
     public class Correlation {
         
-        /* Pearson correlation coefficient between cause and effect measurements */
+        /* id */
         
         
-        [XmlElement(name="correlationCoefficient")]
+        [XmlElement(name="id")]
         
-        public var correlationCoefficient: Number = null;
-    
-        /* ORIGINAL variable name of the cause variable for which the user desires correlations. */
-        
-        
-        [XmlElement(name="cause")]
-        
-        public var cause: String = null;
-    
-        /* original name of the cause. */
-        
-        
-        [XmlElement(name="originalCause")]
-        
-        public var originalCause: String = null;
-    
-        /* ORIGINAL variable name of the effect variable for which the user desires correlations. */
-        
-        
-        [XmlElement(name="effect")]
-        
-        public var effect: String = null;
-    
-        /* effect variable original name. */
-        
-        
-        [XmlElement(name="originalEffect")]
-        
-        public var originalEffect: String = null;
-    
-        /* User estimated or default time after cause measurement before a perceivable effect is observed */
-        
-        
-        [XmlElement(name="onsetDelay")]
-        
-        public var onsetDelay: Number = 0.0;
-    
-        /* Time over which the cause is expected to produce a perceivable effect following the onset delay */
-        
-        
-        [XmlElement(name="durationOfAction")]
-        
-        public var durationOfAction: Number = null;
-    
-        /* Number of points that went into the correlation calculation */
-        
-        
-        [XmlElement(name="numberOfPairs")]
-        
-        public var numberOfPairs: Number = null;
-    
-        /* Magnitude of the effects of a cause indicating whether it&#39;s practically meaningful. */
-        
-        
-        [XmlElement(name="effectSize")]
-        
-        public var effectSize: String = null;
-    
-        /* A function of the effect size and sample size */
-        
-        
-        [XmlElement(name="statisticalSignificance")]
-        
-        public var statisticalSignificance: String = null;
+        public var id: Number = 0;
     
         /* Time at which correlation was calculated */
         
         
         [XmlElement(name="timestamp")]
         
-        public var timestamp: Number = null;
+        public var timestamp: Number = 0;
     
-        /* Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation. */
+        /* ID of user that owns this correlation */
         
         
-        [XmlElement(name="reverseCorrelation")]
+        [XmlElement(name="user_id")]
         
-        public var reverseCorrelation: Number = null;
+        public var userId: Number = 0;
     
-        /*  */
+        /* Pearson correlation coefficient between cause and effect measurements */
         
         
-        [XmlElement(name="causalityFactor")]
+        [XmlElement(name="correlation")]
         
-        public var causalityFactor: Number = null;
+        public var correlation: Number = 0.0;
     
-        /* Variable category of the cause variable. */
+        /* variable ID of the cause variable for which the user desires correlations */
         
         
-        [XmlElement(name="causeCategory")]
+        [XmlElement(name="cause_id")]
         
-        public var causeCategory: String = null;
+        public var causeId: Number = 0;
     
-        /* Variable category of the effect variable. */
+        /* variable ID of the effect variable for which the user desires correlations */
         
         
-        [XmlElement(name="effectCategory")]
+        [XmlElement(name="effect_id")]
         
-        public var effectCategory: String = null;
+        public var effectId: Number = 0;
+    
+        /* User estimated or default time after cause measurement before a perceivable effect is observed */
+        
+        
+        [XmlElement(name="onset_delay")]
+        
+        public var onsetDelay: Number = 0;
+    
+        /* Time over which the cause is expected to produce a perceivable effect following the onset delay */
+        
+        
+        [XmlElement(name="duration_of_action")]
+        
+        public var durationOfAction: Number = 0;
+    
+        /* Number of points that went into the correlation calculation */
+        
+        
+        [XmlElement(name="number_of_pairs")]
+        
+        public var numberOfPairs: Number = 0;
     
         /* cause value that predicts an above average effect value (in default unit for cause variable) */
         
         
-        [XmlElement(name="valuePredictingHighOutcome")]
+        [XmlElement(name="value_predicting_high_outcome")]
         
-        public var valuePredictingHighOutcome: Number = null;
+        public var valuePredictingHighOutcome: Number = 0.0;
     
         /* cause value that predicts a below average effect value (in default unit for cause variable) */
         
         
-        [XmlElement(name="valuePredictingLowOutcome")]
+        [XmlElement(name="value_predicting_low_outcome")]
         
-        public var valuePredictingLowOutcome: Number = null;
+        public var valuePredictingLowOutcome: Number = 0.0;
     
         /* Optimal Pearson Product */
         
         
-        [XmlElement(name="optimalPearsonProduct")]
+        [XmlElement(name="optimal_pearson_product")]
         
-        public var optimalPearsonProduct: Number = null;
+        public var optimalPearsonProduct: Number = 0.0;
     
-        /* Average Vote */
+        /* Vote */
         
         
-        [XmlElement(name="averageVote")]
+        [XmlElement(name="vote")]
         
-        public var averageVote: Number = null;
+        public var vote: Number = 0.0;
     
-        /* User Vote */
+        /* A function of the effect size and sample size */
         
         
-        [XmlElement(name="userVote")]
+        [XmlElement(name="statistical_significance")]
         
-        public var userVote: Number = null;
+        public var statisticalSignificance: Number = 0.0;
     
         /* Unit of Cause */
         
         
-        [XmlElement(name="causeUnit")]
+        [XmlElement(name="cause_unit")]
         
         public var causeUnit: String = null;
     
-        /* Unit Id of Cause */
+        /* Unit ID of Cause */
         
         
-        [XmlElement(name="causeUnitId")]
+        [XmlElement(name="cause_unit_id")]
         
-        public var causeUnitId: Number = null;
+        public var causeUnitId: Number = 0;
+    
+        /* Cause changes */
+        
+        
+        [XmlElement(name="cause_changes")]
+        
+        public var causeChanges: Number = 0;
+    
+        /* Effect changes */
+        
+        
+        [XmlElement(name="effect_changes")]
+        
+        public var effectChanges: Number = 0;
+    
+        /* QM Score */
+        
+        
+        [XmlElement(name="qm_score")]
+        
+        public var qmScore: Number = 0.0;
+    
+        /* error */
+        
+        
+        [XmlElement(name="error")]
+        
+        public var error: String = null;
+    
+        /* created_at */
+        
+        
+        [XmlElement(name="created_at")]
+        
+        public var createdAt: Date = null;
+    
+        /* updated_at */
+        
+        
+        [XmlElement(name="updated_at")]
+        
+        public var updatedAt: Date = null;
+    
+        /* Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation */
+        
+        
+        [XmlElement(name="reverse_pearson_correlation_coefficient")]
+        
+        public var reversePearsonCorrelationCoefficient: Number = 0.0;
+    
+        /* Predictive Pearson Correlation Coefficient */
+        
+        
+        [XmlElement(name="predictive_pearson_correlation_coefficient")]
+        
+        public var predictivePearsonCorrelationCoefficient: Number = 0.0;
     
 
     public function toString(): String {
         var str: String = "Correlation: ";
         
-        str += " (correlationCoefficient: " + correlationCoefficient + ")";
+        str += " (id: " + id + ")";
         
-        str += " (cause: " + cause + ")";
+        str += " (timestamp: " + timestamp + ")";
         
-        str += " (originalCause: " + originalCause + ")";
+        str += " (userId: " + userId + ")";
         
-        str += " (effect: " + effect + ")";
+        str += " (correlation: " + correlation + ")";
         
-        str += " (originalEffect: " + originalEffect + ")";
+        str += " (causeId: " + causeId + ")";
+        
+        str += " (effectId: " + effectId + ")";
         
         str += " (onsetDelay: " + onsetDelay + ")";
         
@@ -178,33 +194,35 @@ package io.swagger.client.model {
         
         str += " (numberOfPairs: " + numberOfPairs + ")";
         
-        str += " (effectSize: " + effectSize + ")";
-        
-        str += " (statisticalSignificance: " + statisticalSignificance + ")";
-        
-        str += " (timestamp: " + timestamp + ")";
-        
-        str += " (reverseCorrelation: " + reverseCorrelation + ")";
-        
-        str += " (causalityFactor: " + causalityFactor + ")";
-        
-        str += " (causeCategory: " + causeCategory + ")";
-        
-        str += " (effectCategory: " + effectCategory + ")";
-        
         str += " (valuePredictingHighOutcome: " + valuePredictingHighOutcome + ")";
         
         str += " (valuePredictingLowOutcome: " + valuePredictingLowOutcome + ")";
         
         str += " (optimalPearsonProduct: " + optimalPearsonProduct + ")";
         
-        str += " (averageVote: " + averageVote + ")";
+        str += " (vote: " + vote + ")";
         
-        str += " (userVote: " + userVote + ")";
+        str += " (statisticalSignificance: " + statisticalSignificance + ")";
         
         str += " (causeUnit: " + causeUnit + ")";
         
         str += " (causeUnitId: " + causeUnitId + ")";
+        
+        str += " (causeChanges: " + causeChanges + ")";
+        
+        str += " (effectChanges: " + effectChanges + ")";
+        
+        str += " (qmScore: " + qmScore + ")";
+        
+        str += " (error: " + error + ")";
+        
+        str += " (createdAt: " + createdAt + ")";
+        
+        str += " (updatedAt: " + updatedAt + ")";
+        
+        str += " (reversePearsonCorrelationCoefficient: " + reversePearsonCorrelationCoefficient + ")";
+        
+        str += " (predictivePearsonCorrelationCoefficient: " + predictivePearsonCorrelationCoefficient + ")";
         
         return str;
     }

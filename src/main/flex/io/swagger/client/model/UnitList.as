@@ -1,7 +1,6 @@
 package io.swagger.client.model {
 
 import io.swagger.common.ListWrapper;
-import io.swagger.client.model.ConversionStep;
 
     public class UnitList implements ListWrapper {
         // This declaration below of _Unit_obj_class is to force flash compiler to include this class

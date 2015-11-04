@@ -1,44 +1,57 @@
 package io.swagger.client.model {
 
-import io.swagger.client.model.HumanTime;
 
     [XmlRootNode(name="Measurement")]
     public class Measurement {
         
-        /* ORIGINAL Name of the variable for which we are creating the measurement records */
+        /* id */
         
         
-        [XmlElement(name="variable")]
+        [XmlElement(name="id")]
         
-        public var variable: String = null;
+        public var id: Number = null;
+    
+        /* ID of user that owns this measurement */
+        
+        
+        [XmlElement(name="user_id")]
+        
+        public var userId: Number = 0;
+    
+        /* client_id */
+        
+        
+        [XmlElement(name="client_id")]
+        
+        public var clientId: String = null;
+    
+        /* Connector ID */
+        
+        
+        [XmlElement(name="connector_id")]
+        
+        public var connectorId: Number = 0;
+    
+        /* ID of the variable for which we are creating the measurement records */
+        
+        
+        [XmlElement(name="variable_id")]
+        
+        public var variableId: Number = 0;
     
         /* Application or device used to record the measurement values */
         
         
-        [XmlElement(name="source")]
+        [XmlElement(name="source_id")]
         
-        public var source: String = null;
-    
-        /* Timestamp for the measurement event in epoch time */
-        
-        
-        [XmlElement(name="timestamp")]
-        
-        public var timestamp: Number = 0;
+        public var sourceId: Number = 0;
     
         /* Start Time for the measurement event in ISO 8601 */
         
         
-        [XmlElement(name="startTime")]
+        [XmlElement(name="start_time")]
         
-        public var startTime: String = null;
-    
-        /* Start Time for the measurement event in ISO 8601 */
-        
-        
-        [XmlElement(name="humanTime")]
-        
-        public var humanTime: HumanTime = null;
+        public var startTime: Number = 0;
     
         /* Converted measurement value in requested unit */
         
@@ -47,47 +60,33 @@ import io.swagger.client.model.HumanTime;
         
         public var value: Number = 0.0;
     
-        /* Unit of measurement as requested in GET request */
+        /* Unit ID of measurement as requested in GET request */
         
         
-        [XmlElement(name="unit")]
+        [XmlElement(name="unit_id")]
         
-        public var unit: String = null;
+        public var unitId: Number = 0;
     
         /* Original value */
         
         
-        [XmlElement(name="originalValue")]
+        [XmlElement(name="original_value")]
         
-        public var originalValue: Number = null;
+        public var originalValue: Number = 0.0;
     
-        /* Measurement value in the unit as orignally submitted */
+        /* Unit ID of measurement as originally submitted */
         
         
-        [XmlElement(name="storedValue")]
+        [XmlElement(name="original_unit_id")]
         
-        public var storedValue: Number = 0.0;
+        public var originalUnitId: Number = 0;
     
-        /* Unit of measurement as originally submitted */
+        /* duration of measurement in seconds */
         
         
-        [XmlElement(name="storedAbbreviatedUnitName")]
+        [XmlElement(name="duration")]
         
-        public var storedAbbreviatedUnitName: String = null;
-    
-        /* Original Unit of measurement as originally submitted */
-        
-        
-        [XmlElement(name="originalAbbreviatedUnitName")]
-        
-        public var originalAbbreviatedUnitName: String = null;
-    
-        /* Unit of measurement as originally submitted */
-        
-        
-        [XmlElement(name="abbreviatedUnitName")]
-        
-        public var abbreviatedUnitName: String = null;
+        public var duration: Number = 0;
     
         /* Note of measurement */
         
@@ -96,35 +95,89 @@ import io.swagger.client.model.HumanTime;
         
         public var note: String = null;
     
+        /* latitude */
+        
+        
+        [XmlElement(name="latitude")]
+        
+        public var latitude: Number = 0.0;
+    
+        /* longitude */
+        
+        
+        [XmlElement(name="longitude")]
+        
+        public var longitude: Number = 0.0;
+    
+        /* location */
+        
+        
+        [XmlElement(name="location")]
+        
+        public var location: String = null;
+    
+        /* created_at */
+        
+        
+        [XmlElement(name="created_at")]
+        
+        public var createdAt: Date = null;
+    
+        /* updated_at */
+        
+        
+        [XmlElement(name="updated_at")]
+        
+        public var updatedAt: Date = null;
+    
+        /* error */
+        
+        
+        [XmlElement(name="error")]
+        
+        public var error: String = null;
+    
 
     public function toString(): String {
         var str: String = "Measurement: ";
         
-        str += " (variable: " + variable + ")";
+        str += " (id: " + id + ")";
         
-        str += " (source: " + source + ")";
+        str += " (userId: " + userId + ")";
         
-        str += " (timestamp: " + timestamp + ")";
+        str += " (clientId: " + clientId + ")";
+        
+        str += " (connectorId: " + connectorId + ")";
+        
+        str += " (variableId: " + variableId + ")";
+        
+        str += " (sourceId: " + sourceId + ")";
         
         str += " (startTime: " + startTime + ")";
         
-        str += " (humanTime: " + humanTime + ")";
-        
         str += " (value: " + value + ")";
         
-        str += " (unit: " + unit + ")";
+        str += " (unitId: " + unitId + ")";
         
         str += " (originalValue: " + originalValue + ")";
         
-        str += " (storedValue: " + storedValue + ")";
+        str += " (originalUnitId: " + originalUnitId + ")";
         
-        str += " (storedAbbreviatedUnitName: " + storedAbbreviatedUnitName + ")";
-        
-        str += " (originalAbbreviatedUnitName: " + originalAbbreviatedUnitName + ")";
-        
-        str += " (abbreviatedUnitName: " + abbreviatedUnitName + ")";
+        str += " (duration: " + duration + ")";
         
         str += " (note: " + note + ")";
+        
+        str += " (latitude: " + latitude + ")";
+        
+        str += " (longitude: " + longitude + ")";
+        
+        str += " (location: " + location + ")";
+        
+        str += " (createdAt: " + createdAt + ")";
+        
+        str += " (updatedAt: " + updatedAt + ")";
+        
+        str += " (error: " + error + ")";
         
         return str;
     }
